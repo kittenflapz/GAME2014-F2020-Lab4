@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class BulletManager : MonoBehaviour
 {
-    public GameObject bullet;
+    public BulletFactory bulletFactory;
     public int MaxBullets;
 
     private Queue<GameObject> m_bulletPool;
@@ -23,7 +23,7 @@ public class BulletManager : MonoBehaviour
 
         for (int count = 0; count < MaxBullets; count++)
         {
-            var tempBullet = Instantiate(bullet);
+            var tempBullet = bulletFactory.createBullet();
             tempBullet.SetActive(false);
             tempBullet.transform.parent = transform;
             m_bulletPool.Enqueue(tempBullet);
