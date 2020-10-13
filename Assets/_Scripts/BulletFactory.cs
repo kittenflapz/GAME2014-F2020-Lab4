@@ -24,13 +24,15 @@ public class BulletFactory : MonoBehaviour
         {
             case BulletType.REGULAR:
                 tempBullet = Instantiate((GameObject)regularBullet);
-            
+                tempBullet.GetComponent<BulletController>().damage = 10; 
                 break;
             case BulletType.FAT:
                 tempBullet = Instantiate(fatBullet);
+                tempBullet.GetComponent<BulletController>().damage = 20;
                 break;
             case BulletType.PULSING:
                 tempBullet = Instantiate(pulsingBullet);
+                tempBullet.GetComponent<BulletController>().damage = 5;
                 break;
         }
         return tempBullet;
